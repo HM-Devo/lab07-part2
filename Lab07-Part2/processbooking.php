@@ -15,11 +15,19 @@
         $food = $_POST['food'];
         $travellers = $_POST['partysize'];
         $date = $_POST['bookday'];
-        $accom = isset($_POST['accom']) ? $_POST['accom'] : 'No accommodation';
-        $day4 = isset($_POST['4day']) ? $_POST['4day'] : 'No 4-day tour';
-        $day10 = isset($_POST['10day']) ? $_POST['10day'] : 'No 10-day tour';
+        $accom = isset($_POST['accom']) ? 'Accommodation requested' : 'No accommodation';
+        $day4 = isset($_POST['4day']) ? '4-day tour' : 'No 4-day tour';
+        $day10 = isset($_POST['10day']) ? '10-day tour' : 'No 10-day tour';
+        $species_map = [
+            'M' => 'human',
+            'E' => 'elf',
+            'D' => 'dwarf',
+            'H' => 'hobbit'
+        ];
+        $species = $species_map[$species] ?? 'unknown species';
+
         echo "<p>Welcome $fname $lname!</p>";
-        echo "<p>You are now booked on the $accom with $day4 and $day10 tour.</p>";
+        echo "<p>You are now booked on the $day4 and $day10, with $accom.</p>";
         echo "<p>Age: $age</p>";
         echo "<p>Species: $species</p>";
         echo "<p>Meal Preference: $food</p>";
